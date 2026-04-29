@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Joy Adhiambo - Cybersecurity Professional | Cloud Security | Network Security | Penetration Testing">
+  <title>Joy Adhiambo | Cybersecurity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e27;
+      --bg-darker: #050810;
+      --surface: #141829;
+      --surface-light: #1a202c;
+      --accent: #00d9ff;
+      --accent-secondary: #00ff88;
+      --accent-tertiary: #7c3aed;
+      --text-primary: #e8eef5;
+      --text-secondary: #a0aec0;
+      --border: rgba(0, 217, 255, 0.15);
+      --border-light: rgba(0, 217, 255, 0.25);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 3rem;
+      background: rgba(10, 14, 39, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-brand span {
+      color: var(--text-secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+      .nav-links {
+        gap: 1.5rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .hero-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+    }
+
+    .hero-title .highlight {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title .highlight::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: -5px;
+      right: -5px;
+      height: 3px;
+      background: rgba(0, 217, 255, 0.3);
+      z-index: -1;
+    }
+
+    .hero-subtitle {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.85rem 2rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg-dark);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(0, 217, 255, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 217, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 5rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: var(--text-primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    #about {
+      background: linear-gradient(135deg, rgba(20, 24, 41, 0.5) 0%, transparent 100%);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    .about-text strong {
+      color: var(--accent);
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-box {
+      padding: 1.5rem;
+      background: rgba(0, 217, 255, 0.05);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== SKILLS SECTION ===== */
+    #skills {
+      background: var(--bg-dark);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-category:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 30px rgba(0, 217, 255, 0.15);
+    }
+
+    .skill-category h3 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill-tag {
+      padding: 0.5rem 1rem;
+      background: rgba(0, 217, 255, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(0, 217, 255, 0.3);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(0, 217, 255, 0.2);
+      border-color: var(--accent);
+    }
+
+    /* ===== PROJECTS SECTION ===== */
+    #projects {
+      background: linear-gradient(135deg, rgba(20, 24, 41, 0.5) 0%, transparent 100%);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 15px 40px rgba(0, 217, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .project-header {
+      padding: 1.5rem;
+      background: rgba(0, 217, 255, 0.05);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: rgba(0, 217, 255, 0.15);
+      color: var(--accent);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .meta-icon {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-link {
+      padding: 0.6rem 1.2rem;
+      background: rgba(0, 217, 255, 0.1);
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 217, 255, 0.3);
+    }
+
+    .project-link:hover {
+      background: rgba(0, 217, 255, 0.2);
+      border-color: var(--accent);
+    }
+
+    /* ===== BLOG SECTION ===== */
+    #blog {
+      background: var(--bg-dark);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .blog-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .blog-date {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-family: 'Space Mono', monospace;
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .blog-excerpt {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .blog-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .blog-tag {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--accent-tertiary);
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    #contact {
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-content p {
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      padding: 1rem 2rem;
+      background: var(--surface);
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+      background: rgba(0, 217, 255, 0.1);
+      border-color: var(--accent);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 3rem;
+      text-align: center;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 2rem 0;
+    }
+
+    .footer-bottom {
+      text-align: center;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 4rem 1.5rem;
+      }
+
+      section {
+        padding: 3rem 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-section a {
+        display: inline-block;
+        margin: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="nav-brand">JOY.<span>CYBER</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-label">Cybersecurity Professional</div>
+      <h1 class="hero-title">
+        Building <span class="highlight">secure systems</span> and sharing knowledge through hands-on security research.
+      </h1>
+      <p class="hero-subtitle">CyberShujaa Learner | Cloud Security | Network Security | Penetration Testing</p>
+      <p class="hero-description">
+        I'm learning cybersecurity with a focus on practical skills. From network analysis to cloud infrastructure security, I document my journey through writeups, projects, and real-world security challenges.
+      </p>
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Hey! I'm <strong>Joy Adhiambo</strong>, a cybersecurity enthusiast and developer based in Nairobi, Kenya. 
+            I'm transitioning from app development into the cybersecurity field with a strong focus on practical, hands-on learning.
+          </p>
+          <p>
+            Through <strong>CyberShujaa</strong>, I'm systematically building expertise across multiple security domains: 
+            network security, cloud infrastructure security, web application security, and penetration testing.
+          </p>
+          <p>
+            My approach is <strong>project-based</strong> — I learn by doing. Every HackTheBox machine, every lab, 
+            and every vulnerability I research becomes a case study on this portfolio.
+          </p>
+          <p>
+            I'm actively seeking opportunities to apply these skills in a professional setting and contribute to 
+            building more secure systems.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">HackTheBox Machines</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Security Domains</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Hands-On Learning</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">Nairobi</div>
+            <div class="stat-label">Location</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>🔐 Network Security</h3>
+          <div class="skill-list">
+            <span class="skill-tag">Wireshark</span>
+            <span class="skill-tag">Nmap</span>
+            <span class="skill-tag">Firewalls</span>
+            <span class="skill-tag">tcpdump</span>
+            <span class="skill-tag">Network Analysis</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>☁️ Cloud Security</h3>
+          <div class="skill-list">
+            <span class="skill-tag">AWS IAM</span>
+            <span class="skill-tag">Security Groups</span>
+            <span class="skill-tag">VPC</span>
+            <span class="skill-tag">S3 Security</span>
+            <span class="skill-tag">Cloud Hardening</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>🐧 Linux & Command Line</h3>
+          <div class="skill-list">
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">Linux Security</span>
+            <span class="skill-tag">User Management</span>
+            <span class="skill-tag">Permissions</span>
+            <span class="skill-tag">System Hardening</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>🌐 Web Application Security</h3>
+          <div class="skill-list">
+            <span class="skill-tag">OWASP Top 10</span>
+            <span class="skill-tag">SQL Injection</span>
+            <span class="skill-tag">XSS</span>
+            <span class="skill-tag">Burp Suite</span>
+            <span class="skill-tag">Web Vulnerabilities</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>🎯 Penetration Testing</h3>
+          <div class="skill-list">
+            <span class="skill-tag">HackTheBox</span>
+            <span class="skill-tag">Reconnaissance</span>
+            <span class="skill-tag">Exploitation</span>
+            <span class="skill-tag">Privilege Escalation</span>
+            <span class="skill-tag">Reporting</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>⚙️ Other Tools</h3>
+          <div class="skill-list">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Metasploit</span>
+            <span class="skill-tag">DVWA</span>
+            <span class="skill-tag">Python Scripting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tag">HackTheBox</span>
+            <h3 class="project-title">Network Reconnaissance Study</h3>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              In-depth analysis of network reconnaissance techniques using Nmap and packet analysis. 
+              Documented port scanning methodology, service enumeration, and vulnerability assessment approaches.
+            </p>
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-icon">📚</span>
+                <span>Intermediate</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">🔍</span>
+                <span>Network Security</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Read Writeup</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tag">Cloud Security</span>
+            <h3 class="project-title">AWS Security Lab</h3>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              Set up a secure AWS environment with proper IAM policies, VPC architecture, 
+              and security group configurations. Identified and remediated common misconfigurations.
+            </p>
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-icon">☁️</span>
+                <span>Cloud Security</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">🔒</span>
+                <span>Hands-On</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Learn More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tag">Web Security</span>
+            <h3 class="project-title">Web Vulnerability Analysis</h3>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              DVWA and OWASP WebGoat walkthroughs. Practical exploitation of common web vulnerabilities 
+              including SQL injection, XSS, and CSRF with detailed mitigation strategies.
+            </p>
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-icon">🌐</span>
+                <span>Web Security</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">📝</span>
+                <span>Educational</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+      <h2 class="section-title">Latest Writeups</h2>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-date">Coming Soon</div>
+          <h3 class="blog-title">HackTheBox Machine Walkthrough</h3>
+          <p class="blog-excerpt">
+            A detailed writeup of my HackTheBox machine experience, including reconnaissance, 
+            exploitation techniques, and lessons learned throughout the process.
+          </p>
+          <div class="blog-tags">
+            <span class="blog-tag">HackTheBox</span>
+            <span class="blog-tag">Pentesting</span>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-date">Coming Soon</div>
+          <h3 class="blog-title">Understanding Cloud Security Basics</h3>
+          <p class="blog-excerpt">
+            Deep dive into AWS security fundamentals: IAM policies, VPC design, security groups, 
+            and common misconfigurations found in real-world environments.
+          </p>
+          <div class="blog-tags">
+            <span class="blog-tag">AWS</span>
+            <span class="blog-tag">Cloud Security</span>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-date">Coming Soon</div>
+          <h3 class="blog-title">Network Analysis with Wireshark</h3>
+          <p class="blog-excerpt">
+            Practical guide to packet analysis, identifying suspicious traffic patterns, 
+            and using Wireshark for network security investigations.
+          </p>
+          <div class="blog-tags">
+            <span class="blog-tag">Network Security</span>
+            <span class="blog-tag">Tools</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="contact-content">
+        <p>
+          I'm always interested in discussing cybersecurity, collaborating on projects, 
+          or exploring job opportunities. Feel free to reach out!
+        </p>
+        <div class="contact-links">
+          <a href="mailto:joyelizabeth254@gmail.com" class="contact-link">📧 Email</a>
+          <a href="https://github.com/JoyAdhiambo" class="contact-link" target="_blank">🔗 GitHub</a>
+          <a href="https://linkedin.com" class="contact-link" target="_blank">💼 LinkedIn</a>
+          <a href="https://twitter.com" class="contact-link" target="_blank">𝕏 Twitter</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://www.hackthebox.com" target="_blank">HackTheBox</a></li>
+          <li><a href="https://cybershujaa.co.ke" target="_blank">CyberShujaa</a></li>
+          <li><a href="https://owasp.org" target="_blank">OWASP</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:joyelizabeth254@gmail.com">Email</a></li>
+          <li><a href="https://github.com/JoyAdhiambo" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Joy Adhiambo | Cybersecurity Portfolio | Built with HTML, CSS & Vision</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add fade-in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section, .skill-category, .project-card, .blog-card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
